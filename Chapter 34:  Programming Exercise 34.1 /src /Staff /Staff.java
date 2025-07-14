@@ -8,8 +8,8 @@ public class Staff extends Application {
   public void start(Stage primaryStage) throws Exception {
     // TODO Auto-generated method stub
 
-    Scene scene = new Scene(name, 400, 80);
-    primaryStage.setTitle("Move Rectangle");
+    Scene scene = new Scene(name me, 400, 80);
+    primaryStage.setTitle("Staff");
     primaryStage.setScene(scene);
     primaryStage.show();
   }
