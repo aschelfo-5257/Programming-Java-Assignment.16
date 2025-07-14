@@ -5,7 +5,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Staff extends Application {
-    private Label lbStatus = new Label();
+    private Label lbStatus = new Label("");
 
     /**
      * Use of the following:
@@ -62,7 +62,7 @@ public class Staff extends Application {
         Vbox.getChildren().addAll(hbox1, hbox2, hbox3, hbox4, hbox5);
 
         HBox btnBox = new HBox(5);
-        hbox1.getChildren().addAll(btnView, btnInsert, btnUpdate, btnClear);
+        btnBox.getChildren().addAll(btnView, btnInsert, btnUpdate, btnClear);
 
         BorderPane pane = new BorderPane();
         pane.setTop(value);
