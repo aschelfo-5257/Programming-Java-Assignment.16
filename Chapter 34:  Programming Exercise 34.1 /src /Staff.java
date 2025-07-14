@@ -1,6 +1,10 @@
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -8,10 +12,9 @@ public class Staff extends Application {
     private Label lbStatus = new Label("");
 
     /**
-     * Use of the following:
-     * private Label lblName = new Label("Name")
+     * You would follow the label and textfield:
+     * private Label ldlName = new Label("Name");
      * private TextField txtName = new TextField();
-     *
      */
     private Label lblID = new Label("ID");
     private TextField txtID = new TextField();
@@ -39,43 +42,29 @@ public class Staff extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        // Simple UI: a single label inside a vertical box
         Label label = new Label("Staff");
-        VBox root = new VBox(label);
 
-        Hbox hbox1 = new HBox(5);
-        hbox1.getChildren().addAll(lblID, txtID);
-        
-        Hbox hbox2 = new HBox(5);
-        hbox2.getChildren().addAll(lblLastName, txtLastName, lblFirstName, txtFirstName, lblMiddleName, txtMiddleName);
+        HBox hbox1 = new HBox(5, lblID, txtID);
+        HBox hbox2 = new HBox(5, lblLastName, txtLastName, lblFirstName, txtFirstName, lblMiddleName, txtMiddleName);
+        HBox hbox3 = new HBox(5, lblAddress, txtAddress);
+        HBox hbox4 = new HBox(5, lblCity, txtCity, lblState, txtState);
+        HBox hbox5 = new HBox(5, lblPhone, txtPhone, lblEmail, txtEmail);
 
-        Hbox hbox3 = new HBox(5);
-        hbox3.getChildren().addAll(lblAddress, txtAddress);
+        VBox vbox = new VBox(5, label, hbox1, hbox2, hbox3, hbox4, hbox5);
 
-        Hbox hbox4 = new HBox(5);
-        hbox4.getChildren().addAll(lblCity, txtCity, lblState, txtState);
-
-        Hbox hbox5 = new HBox(5);
-        hbox5.getChildren().addAll(lblPhone, txtPhone, lblEmail, txtEmail);
-
-        VBox vbox = new VBox(5);
-        Vbox.getChildren().addAll(hbox1, hbox2, hbox3, hbox4, hbox5);
-
-        HBox btnBox = new HBox(5);
-        btnBox.getChildren().addAll(btnView, btnInsert, btnUpdate, btnClear);
+        HBox btnBox = new HBox(5, btnView, btnInsert, btnUpdate, btnClear);
 
         BorderPane pane = new BorderPane();
-        pane.setTop(value);
-        pane.setCenter(value);
+        pane.setTop(vbox);
         pane.setBottom(btnBox);
 
-        Scene scene = new Scene(root, 400, 80);
+        Scene scene = new Scene(pane, 600, 300);
         primaryStage.setTitle("Staff");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
     public static void main(String[] args) {
-        launch(args);   // NOT “Launch”
+        launch(args);
     }
 }
