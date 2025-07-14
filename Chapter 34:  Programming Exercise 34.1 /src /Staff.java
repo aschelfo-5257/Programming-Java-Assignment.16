@@ -1,7 +1,7 @@
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import java.sql.";
+import java.sql.Sql;
 
 public class Staff extends Application {
 
